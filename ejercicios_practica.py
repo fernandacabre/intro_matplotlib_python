@@ -37,7 +37,13 @@ def ej1():
     # Graficar el "line plot" de "Y" en función de "X"
     # Colocar la leyenda y el label con el nombre de la función
     # Darle color a la línea a su elección
-
+    
+    fig = plt.figure()
+    ax = fig.add_subplot()
+    ax.plot(x, y, c='lime', label='y=x**2')
+    ax.legend(loc='best')
+    ax.grid()
+    plt.show()
 
 def ej2():
     # Line Plot
@@ -68,6 +74,14 @@ def ej2():
     # Cada función dibujarla con un color distinto
     # a su elección
 
+    fig = plt.figure()
+    ax = fig.add_subplot()
+    ax.plot(x, y1, color='darkorange', label='cuadrática')
+    ax.plot(x, y2, color='red', label='cúbica')
+
+    ax.set_title('Funciones')
+    ax.legend()
+    plt.show()
 
 def ej3():
     # Scatter Plot
@@ -88,6 +102,13 @@ def ej3():
 
     # Elegir un marker a elección
 
+    fig = plt.figure()
+    ax = fig.add_subplot()
+    fig.suptitle('Sactter Plot de tanh(x)', fontsize=14)
+    
+    ax.scatter(x, y, color='darkmagenta', marker='.', label='tanh(x)')
+    ax.legend()
+    plt.show()
 
 def ej4():
     # Figura con múltiples gráficos
@@ -127,10 +148,49 @@ def ej4():
     # Colocar una grilla a elección
 
 
+    y1 = []
+    for i in x:
+        y1.append(i**2)
+
+    y2 = []
+    for i in x:
+        y2.append(i**3)
+
+    y3 = []
+    for i in x:
+        y3.append(i**4)
+
+    y4 = []
+    for i in x:
+        y4.append(np.sqrt(x))
+
+    fig = plt.figure()
+    ax1 = fig.add_subplot(2,2,1)
+    ax2 = fig.add_subplot(2,2,2)
+    ax3 = fig.add_subplot(2,2,3)
+    ax4 = fig.add_subplot(2,2,4)
+
+    ax1.plot(x, y1, color='r', label='y=x^2')
+    ax1.legend()
+    ax1.grid(color='silver', linestyle='-', linewidth=2)
+
+    ax2.plot(x, y2, color='g', label='y=x^3')
+    ax2.legend()
+    ax2.grid(color='silver', linestyle='--', linewidth=3)
+
+    ax3.plot(x, y3, color='b', label='y=x^4')
+    ax3.legend()
+    ax3.grid(color='silver', linestyle='-.', linewidth=4)
+
+    ax4.plot(x, y4, color='y', label='raiz_cuadrada(x)')
+    ax4.legend()
+    ax4.grid(color='silver', linestyle=':', linewidth=5)
+    plt.show()
+
+
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
-    ej1()
-    # ej2()
+    # ej1()
     # ej2()
     # ej3()
-    # ej4()
+    ej4()
